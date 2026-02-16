@@ -1,0 +1,8 @@
+#!/bin/sh
+
+(find $HOME/.local/share/wallpapers -type f && cat $HOME/.local/share/wallpapers/history.txt) | sed '/paper.txt/d' | sed '/history.txt/d' | tac | awk '!seen[$0]++' | fzf --preview='fzf-preview.sh {}' | sed 's|^.*/wallpapers/||' > $HOME/.local/share/wallpapers/paper.txt
+
+xwallpaper --stretch $HOME/.local/share/wallpapers/$(cat $HOME/.local/share/wallpapers/paper.txt)
+wal -i $HOME/.local/share/wallpapers/$(cat $HOME/.local/share/wallpapers/paper.txt)
+cat ~/.Xresources ~/.cache/wal/xrdb_extra | xrdb -merge &
+xdotool key super+F5
