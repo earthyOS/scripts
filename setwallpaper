@@ -4,5 +4,5 @@ paper_file=$(find $HOME/.local/share/wallpapers -type f | sed '/.git/d' | nsxiv 
 
 xwallpaper --stretch $paper_file
 wal -i $paper_file
-cat ~/.Xresources ~/.cache/wal/xrdb_extra | xrdb -merge &
+cat ~/.Xresources ~/.cache/wal/xrdb_extra | xrdb -merge 
 xdotool key super+F5
