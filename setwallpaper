@@ -6,3 +6,5 @@ xwallpaper --stretch $paper_file
 wal -i $paper_file
 cat ~/.Xresources ~/.cache/wal/xrdb_extra | xrdb -merge 
 xdotool key super+F5
+
+echo $paper_file > $HOME/.cache/wallpaper
